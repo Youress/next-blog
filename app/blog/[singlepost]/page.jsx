@@ -4,7 +4,7 @@ import FeaturedImage from "@/app/components/FeaturedImage";
 const BlogPost = async ({ params }) => {
   const post = await getSinglePost(params.singlepost);
   return (
-    <main className="md:py-14 py-8  ">
+    <main className="md:py-14 py-8 px-6 md:px-0  ">
       <section className="max-w-[680px] mx-auto">
         <div className="mb-2">
           <p className="text-purple-600 text-sm font-semibold">{new Date(post?.date).toLocaleString()}</p>

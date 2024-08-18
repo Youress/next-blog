@@ -10,6 +10,7 @@ export async function POST(request: Request) {
   const message = formData.get('message');
 
   const url = 'https://api.hubapi.com/crm/v3/objects/contacts';
+  console.log('HubSpot API Key:', process.env.NEXT_PUBLIC_HUBSPOT_API_KEY);
 
   const body = {
     properties: {
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.HUBSPOT_API_KEY}` // Replace with your actual PAT
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_HUBSPOT_API_KEY}` // Replace with your actual PAT
       },
       body: JSON.stringify(body)
     });

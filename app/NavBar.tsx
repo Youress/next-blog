@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classnames from "classnames";
 import React from "react";
+import ThemeSwitch from "./components/ThemeSwitcher";
 
 const NavBar = () => {
   return (
@@ -16,7 +17,7 @@ const NavBar = () => {
           <Flex>
             <NavLinks />
           </Flex>
-          
+          <ThemeSwitch/>
         </Flex>
       </Container>
     </nav>
@@ -38,7 +39,7 @@ const NavLinks = () => {
             className={classnames({
               "nav-link": true,
               "font-bold": true,
-              "!text-zinc-900": link.href === currentPath,
+              "text-zinc-900 dark:text-slate-50": link.href === currentPath,
             })}
             href={link.href}
           >

@@ -1,14 +1,14 @@
 import { getSinglePost } from "@/app/lib/posts";
 import { getAllPosts } from "@/app/lib/posts";
 import Post from "@/app/blog/[singlepost]/post"
+import { notFound } from "next/navigation";
 
-export const revalidate = 3600 // invalidate every hour
 export const dynamicParams = true
 
 const BlogPost = async ({ params }) => {
   const {singlepost} = params
   const post = await getSinglePost(singlepost);
-
+if(!post) return notFound()
   return (
     <>
     <Post post={post}/>

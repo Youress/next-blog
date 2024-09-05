@@ -3,6 +3,7 @@ export default async function graphRequest(query) {
     const res = await fetch(
       "https://youess-47031e.ingress-comporellon.ewp.live/graphql",
       {
+        next : {revalidate:3600},
         method: "POST",
         headers: {
           "Content-Type": "application/json",

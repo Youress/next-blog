@@ -7,9 +7,10 @@ import NavBar from "./NavBar";
 import { Providers } from "./provider";
 import { ThemeProvider } from "next-themes";
 
-const inter = Roboto({
+const roboto = Roboto({
   weight:'400',
-   subsets: ["latin"] });
+   subsets: ["latin"],
+  variable : "--font-roboto" });
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.className}>
+    <html lang="en" suppressHydrationWarning className={`${roboto.variable} font-sans`}>
       <body className="bg-gray-50 dark:bg-slate-800" >
         <ThemeProvider attribute="class">
           <Theme >

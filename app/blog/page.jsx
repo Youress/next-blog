@@ -1,8 +1,10 @@
 import CategoriesButton from "@/app/components/CategoriesButton";
 import FeaturedImage from "@/app/components/FeaturedImage";
 import { getAllPosts } from "../lib/posts";
-import OnePost from "@/app/blog/OnePost"
+import OnePost from "@/app/blog/OnePost";
 import Link from "next/link";
+import parse from "html-react-parser";
+
 const BlogHome = async () => {
   const allPosts = await getAllPosts();
   return (
@@ -31,12 +33,7 @@ const BlogHome = async () => {
                 </Link>
               </div>
 
-              <div
-                className=""
-                dangerouslySetInnerHTML={{
-                  __html: post.excerpt.substring(3, 120) + "...",
-                }}
-              ></div>
+              <div>{parse(post.excerpt.substring(3, 120) + "...")}</div>
 
               <CategoriesButton post={post} />
             </div>
@@ -51,5 +48,4 @@ const BlogHome = async () => {
 };
 
 export default BlogHome;
-
 

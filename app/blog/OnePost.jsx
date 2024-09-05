@@ -1,5 +1,6 @@
 import { getSinglePost } from "../lib/posts";
 import FeaturedImage from "@/app/components/FeaturedImage";
+import parse from "html-react-parser";
 
 const OnePost = async ({ allposts }) => {
   const singlePost = allposts?.nodes[0]; // Directly access the first post
@@ -19,7 +20,7 @@ const OnePost = async ({ allposts }) => {
       <div className="flex justify-center my-5">
         <FeaturedImage post={post} />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post?.content }}></div>
+      <div >{parse(post?.content)}</div>
     </>
   );
 };

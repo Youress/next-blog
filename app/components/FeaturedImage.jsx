@@ -11,7 +11,7 @@ export default async function FeaturedImage({ post }) {
   const defaultWidth = "400";
   const defaultHeight = "500";
 
-  if (post.featuredImage) {
+  if (post?.featuredImage) {
         let size = post.featuredImage?.node.mediaDetails.sizes[0];
     img = {
       src: size.sourceUrl,
@@ -28,14 +28,14 @@ export default async function FeaturedImage({ post }) {
 
   return (
     <Suspense fallback={<Skeleton width='24rem' height='24rem'/>}>
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post?.slug}`}>
         <Image
           src={img.src}
           width={0}
           height={0}
           sizes="100vw"
           style={{ width: "620px"}}
-          alt={post.title}
+          alt={post?.title}
           className="h-full object-cover rounded-xl"
         />
       </Link>

@@ -3,7 +3,6 @@ import { getAllPosts } from "@/app/lib/posts";
 import Post from "@/app/blog/[singlepost]/post"
 import { notFound } from "next/navigation";
 
-export const dynamicParams = true
 
 const BlogPost = async ({ params }) => {
   const {singlepost} = params
@@ -19,9 +18,22 @@ if(!post) return notFound()
 export default BlogPost;
 
 export async function generateMetadata({ params }) {
+  const post = await getSinglePost(params.singlepost);
+  
+  if (!post) return {};
+
   return {
-    title: params.singlepost,
-    description: params.singlepost ,
+    title: post.title,
+    description: post.excerpt ? post.excerpt.replace(/<[^>]*>?/gm, '').substring(0, 160) : '',
+    openGraph: {
+      title: post.title,
+      description: post.excerpt ? post.excerpt.replace(/<[^>]*>?/gm, '').substring(0, 160) : '',
+      type: 'article',
+      images: post.featuredImage?.node?.sourceUrl ? [post.featuredImage.node.sourceUrl] : [],
+    },
+    alternates: {
+      canonical: `/blog/${params.singlepost}`,
+    },
   };
 }
 export async function generateStaticParams() {

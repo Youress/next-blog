@@ -25,7 +25,8 @@ export default async function FeaturedImage({ post }) {
       height: defaultHeight,
     };
   }
-
+// Return null if no image source
+if (!img.src) return null;
   return (
     <Suspense fallback={<Skeleton width='24rem' height='24rem'/>}>
       <Link href={`/blog/${post?.slug}`}>

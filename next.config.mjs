@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "youess-47031e.ingress-comporellon.ewp.live",
+        hostname: "growtaller-47031e.ingress-haven.ewp.live",
         port: "",
         pathname: "/**",
       },

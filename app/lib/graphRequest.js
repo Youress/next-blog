@@ -1,7 +1,7 @@
 export default async function graphRequest(query) {
   try {
     const res = await fetch(
-      "https://youess-47031e.ingress-comporellon.ewp.live/graphql",
+      "https://growtaller-47031e.ingress-haven.ewp.live/graphql",
       {
         next : {revalidate:3600},
         method: "POST",

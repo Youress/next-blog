@@ -6,6 +6,7 @@ import "@radix-ui/themes/styles.css";
 import NavBar from "./NavBar";
 import { Providers } from "./provider";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
 
 const roboto = Roboto({
   weight:'400',
@@ -30,6 +31,7 @@ export default function RootLayout({
             <Container>
               <NavBar />
               {children}
+              <Analytics/>
             </Container>
           </Theme>
         </ThemeProvider>

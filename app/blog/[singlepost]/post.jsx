@@ -20,4 +20,4 @@ const Post = ({post}) => {
 }
 
 export default Post
-export const dynamic = 'force-static'
+// export const dynamic = 'force-statc'
